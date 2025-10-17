@@ -7,5 +7,7 @@ use function cli\prompt;
 
 function startGame()
 {
-    line("\nWelcome to the Brain Games!\n");
+    line('Welcome to the Brain Games!');
+    $name = prompt('May I have your name?');
+    line('Hello, %s!', $name);
 }
