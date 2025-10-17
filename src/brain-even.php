@@ -3,6 +3,7 @@
 
     use function cli\line;
     use function cli\prompt;
+    use function cli\exit;
 
     const answers = ["yes", "no"];
 
@@ -14,36 +15,43 @@
 
         line('Answer "yes" if the number is even, otherwise answer "no".');
         
-        $check = 0; // Сколько правильных ответов
+        $turns = 3; // Сколько всего вопросов
 
-        question();
+        for ($i = 0; $i < $turns; $i++) {
+                question($name);
+        }
+
+        line('Congratulations, %s!', $name);
     }
 
-    function question()
+    function question($name)
     {
         $randomNum = randomNum();
         line('Question: %s', $randomNum);
 
         $answer = prompt('Your answer');
-        $result = true;
+        $isEven = $randomNum % 2 === 0;
+        $correctAnswer = 'is wrong answer ;(. Correct answer was ' . ($isEven ? 'yes' : 'no');
 
         // Проверка ответа
         if($answer === 'yes' && $randomNum % 2 !== 0) {
-            line("'yes' is wrong answer ;(. Correct answer was 'no'.");
+            line("'%s' {$correctAnswer}", $answer);
             line("Let's try again, %s!", $name);
 
-            $result = false;
+            die();
         }
 
         if($answer === 'no' && $randomNum % 2 === 0) {
-            line("'no' is wrong answer ;(. Correct answer was 'yes'.");
+            line("'%s' {$correctAnswer}", $answer);
             line("Let's try again, %s!", $name);
 
-            $result = false;
+            die();
         }
 
-        return $result;
+        line("Correct!");
     }
+
+    
 
     function randomNum()
     {
