@@ -42,6 +42,10 @@
             defeat($correctAnswer, $answer, $name);
         }
 
+        if($answer !== 'no' && $answer !== 'no') {
+            defeat($correctAnswer, $answer, $name);
+        }
+
         line("Correct!");
     }
 
