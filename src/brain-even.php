@@ -24,7 +24,7 @@ function startGame(): void
     line('Congratulations, %s!', $name);
 }
 
-function isCorrectAnswerEven(string $answer,string $correctAnswer,string $isEven,string $name)
+function isCorrectAnswerEven(string $answer, string $correctAnswer, string $isEven, string $name)
 {
     // Проверка ответа
     if ($answer === 'yes' && !$isEven) {
@@ -38,5 +38,4 @@ function isCorrectAnswerEven(string $answer,string $correctAnswer,string $isEven
     if ($answer !== 'no' && $answer !== 'yes') {
         defeat($correctAnswer, $answer, $name);
     }
-
 }

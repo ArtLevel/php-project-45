@@ -1,15 +1,16 @@
 <?php
+
 namespace BrainGames\Helpers;
+
 use function BrainGames\BrainEven\isCorrectAnswerEven;
 use function BrainGames\BrainCalc\isCorrectAnswerCalc;
-
 use function cli\line;
 use function cli\prompt;
 
 function question(string $name, string $module): void
 {
 
-    if($module === "calc") {
+    if ($module === "calc") {
         $randomNum1 = randomNum(10);
         $randomNum2 = randomNum(10);
 
@@ -21,7 +22,7 @@ function question(string $name, string $module): void
         isCorrectAnswerCalc($randomNum1, $operator, $randomNum2, $answer, $name);
     }
 
-    if($module === "even") {
+    if ($module === "even") {
         $randomNum = randomNum(100);
         line('Question: %s', $randomNum);
         $answer = prompt('Your answer');
@@ -44,9 +45,9 @@ function generateOperator(): string
 {
     $num = randomNum(100);
 
-    if($num < 30) {
+    if ($num < 30) {
         return "-";
-    } elseif($num < 60) {
+    } elseif ($num < 60) {
         return "+";
     } else {
         return "*";
