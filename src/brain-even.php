@@ -57,5 +57,5 @@ function defeat(string $correctAnswer, string $answer, string $name): never
 
 function randomNum(): int
 {
-    return mt_rand(1, 100);
+    return random_int(1, 100);
 }
