@@ -1,0 +1,16 @@
+{
+    "name": "hexlet/code",
+    "description": "Brain Games",
+    "autoload": {
+        "psr-4": {
+            "Hexlet\\Code\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ArtLevel",
+            "email": "algitit@rambler.ru"
+        }
+    ],
+    "require": {}
+}
