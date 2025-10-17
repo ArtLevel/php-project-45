@@ -7,5 +7,5 @@ use function cli\prompt;
 
 function startGame()
 {
-    line('/Welcome to the Brain Game!/');
+    line("\nWelcome to the Brain Game!\n");
 }
