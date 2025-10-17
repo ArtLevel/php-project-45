@@ -5,11 +5,16 @@
     "bin": [
         "bin/brain-games"
     ],
+    "autoload": {
+        "files": []
+    },
     "authors": [
         {
             "name": "ArtLevel",
             "email": "algitit@rambler.ru"
         }
     ],
-    "require": {}
+    "require": {
+        "wp-cli/php-cli-tools": "^0.12.6"
+    }
 }
