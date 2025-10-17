@@ -9,7 +9,8 @@
     "autoload": {
         "files": [
             "src/Cli.php",
-            "src/brain-even.php"
+            "src/brain-even.php",
+            "src/helpers.php"
         ]
     },
     "authors": [

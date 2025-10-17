@@ -1,9 +1,10 @@
 <?php
 
-    namespace BrainGames\BrainEven;
+namespace BrainGames\BrainEven;
 
-    use function cli\line;
-    use function cli\prompt;
+use function cli\line;
+use function cli\prompt;
+use function BrainGames\Helpers\question;
 
 function startGame(): void
 {
@@ -16,21 +17,14 @@ function startGame(): void
     $turns = 3; // Сколько всего вопросов
 
     for ($i = 0; $i < $turns; $i++) {
-            question($name);
+            question($name, 'even');
     }
 
     line('Congratulations, %s!', $name);
 }
 
-function question(string $name): void
+function isCorrectAnswer(string $answer,string $correctAnswer,string $isEven,string $name)
 {
-    $randomNum = randomNum();
-    line('Question: %s', $randomNum);
-
-    $answer = prompt('Your answer');
-    $isEven = $randomNum % 2 === 0;
-    $correctAnswer = 'is wrong answer ;(. Correct answer was ' . ($isEven ? 'yes' : 'no');
-
     // Проверка ответа
     if ($answer === 'yes' && !$isEven) {
         defeat($correctAnswer, $answer, $name);
@@ -44,7 +38,6 @@ function question(string $name): void
         defeat($correctAnswer, $answer, $name);
     }
 
-    line("Correct!");
 }
 
 function defeat(string $correctAnswer, string $answer, string $name): never
@@ -53,9 +46,4 @@ function defeat(string $correctAnswer, string $answer, string $name): never
     line("Let's try again, %s!", $name);
 
     die();
-}
-
-function randomNum(): int
-{
-    return random_int(1, 100);
 }
