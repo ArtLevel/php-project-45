@@ -5,6 +5,7 @@ namespace BrainGames\BrainEven;
 use function cli\line;
 use function cli\prompt;
 use function BrainGames\Helpers\question;
+use function BrainGames\Helpers\defeat;
 
 function startGame(): void
 {
@@ -23,7 +24,7 @@ function startGame(): void
     line('Congratulations, %s!', $name);
 }
 
-function isCorrectAnswer(string $answer,string $correctAnswer,string $isEven,string $name)
+function isCorrectAnswerEven(string $answer,string $correctAnswer,string $isEven,string $name)
 {
     // Проверка ответа
     if ($answer === 'yes' && !$isEven) {
@@ -38,12 +39,4 @@ function isCorrectAnswer(string $answer,string $correctAnswer,string $isEven,str
         defeat($correctAnswer, $answer, $name);
     }
 
-}
-
-function defeat(string $correctAnswer, string $answer, string $name): never
-{
-    line("'%s' {$correctAnswer}", $answer);
-    line("Let's try again, %s!", $name);
-
-    die();
 }

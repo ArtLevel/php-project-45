@@ -1,6 +1,7 @@
 <?php
 namespace BrainGames\Helpers;
-use function BrainGames\BrainEven\isCorrectAnswer;
+use function BrainGames\BrainEven\isCorrectAnswerEven;
+use function BrainGames\BrainCalc\isCorrectAnswerCalc;
 
 use function cli\line;
 use function cli\prompt;
@@ -9,16 +10,19 @@ function question(string $name, string $module): void
 {
 
     if($module === "calc") {
-        $randomNum1 = randomNum();
-        $randomNum2 = randomNum();
+        $randomNum1 = randomNum(10);
+        $randomNum2 = randomNum(10);
 
         $operator = generateOperator();
 
-        line('Question: asdfasdfasdf', $randomNum1, $operator, $randomNum2);
+        line('Question: %s %s %s', $randomNum1, $operator, $randomNum2);
+        $answer = prompt('Your answer');
+
+        isCorrectAnswerCalc($randomNum1, $operator, $randomNum2, $answer, $name);
     }
 
     if($module === "even") {
-        $randomNum = randomNum();
+        $randomNum = randomNum(100);
         line('Question: %s', $randomNum);
         $answer = prompt('Your answer');
 
@@ -31,14 +35,14 @@ function question(string $name, string $module): void
 function questionEven(string $name, string $answer, $randomNum)
 {
     $isEven = $randomNum % 2 === 0;
-    $correctAnswer = 'is wrong answer ;(. Correct answer was ' . ($isEven ? 'yes' : 'no');
+    $correctAnswer = $isEven ? 'yes' : 'no';
 
-    \BrainGames\BrainEven\isCorrectAnswer($answer, $correctAnswer, $isEven, $name);
+    isCorrectAnswerEven($answer, $correctAnswer, $isEven, $name);
 }
 
 function generateOperator(): string
 {
-    $num = randomNum();
+    $num = randomNum(100);
 
     if($num < 30) {
         return "-";
@@ -49,7 +53,15 @@ function generateOperator(): string
     }
 }
 
-function randomNum(): int
+function randomNum(int $step = 100): int
 {
-    return random_int(1, 100);
+    return random_int(1, $step);
+}
+
+function defeat(string $correctAnswer, string $answer, string $name): never
+{
+    line("'%s' is wrong answer ;(. Correct answer was {$correctAnswer}", $answer);
+    line("Let's try again, %s!", $name);
+
+    die();
 }

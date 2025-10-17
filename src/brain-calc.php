@@ -5,6 +5,7 @@ namespace BrainGames\BrainCalc;
 use function cli\line;
 use function cli\prompt;
 use function BrainGames\Helpers\question;
+use function BrainGames\Helpers\defeat;
 
 function startGame(): void
 {
@@ -23,3 +24,23 @@ function startGame(): void
     line('Congratulations, %s!', $name);
 }
 
+function isCorrectAnswerCalc(int $randomNum1, string $operator, int $randomNum2, string $answer, string $name)
+{
+    $result;
+
+    switch ($operator) {
+        case "+":
+            $result = $randomNum1 + $randomNum2;
+            break;
+        case "-":
+            $result = $randomNum1 - $randomNum2;
+            break;
+        case "*":
+            $result = $randomNum1 * $randomNum2;
+            break;
+    }
+
+    if ($result !== intval($answer)) {
+        defeat($result, $answer, $name);
+    }
+}
