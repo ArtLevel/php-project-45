@@ -42,7 +42,7 @@
             defeat($correctAnswer, $answer, $name);
         }
 
-        if($answer !== 'no' && $answer !== 'no') {
+        if($answer !== 'no' && $answer !== 'yes') {
             defeat($correctAnswer, $answer, $name);
         }
 
