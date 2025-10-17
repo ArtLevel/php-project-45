@@ -26,7 +26,7 @@ function startGame(): void
 
 function isCorrectAnswerCalc(int $randomNum1, string $operator, int $randomNum2, string $answer, string $name)
 {
-    $result;
+    $result = 0;
 
     switch ($operator) {
         case "+":
