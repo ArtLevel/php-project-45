@@ -34,24 +34,24 @@
         $correctAnswer = 'is wrong answer ;(. Correct answer was ' . ($isEven ? 'yes' : 'no');
 
         // Проверка ответа
-        if($answer === 'yes' && $randomNum % 2 !== 0) {
-            line("'%s' {$correctAnswer}", $answer);
-            line("Let's try again, %s!", $name);
-
-            die();
+        if($answer === 'yes' && !$isEven) {
+            defeat($correctAnswer, $answer, $name);
         }
 
-        if($answer === 'no' && $randomNum % 2 === 0) {
-            line("'%s' {$correctAnswer}", $answer);
-            line("Let's try again, %s!", $name);
-
-            die();
+        if($answer === 'no' && $isEven) {
+            defeat($correctAnswer, $answer, $name);
         }
 
         line("Correct!");
     }
 
-    
+    function defeat(string $correctAnswer, string $answer, string $name)
+    {
+        line("'%s' {$correctAnswer}", $answer);
+        line("Let's try again, %s!", $name);
+
+        die();
+    }
 
     function randomNum()
     {
