@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="BrainGames Rules">
+    <!-- Объявляем стандарт -->
+    <rule ref="PSR12"/>
+
+    <!-- Исключить определённые файлы или папки (если нужно) -->
+    <!--
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    -->
+
+    <!-- Указать файлы или директории для проверки -->
+    <file>src/</file>
+    <file>bin/</file>
+</ruleset>

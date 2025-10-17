@@ -1,63 +1,61 @@
 <?php
+
     namespace BrainGames\BrainEven;
 
     use function cli\line;
     use function cli\prompt;
-    use function cli\exit;
 
-    const answers = ["yes", "no"];
+function startGame(): void
+{
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line('Hello, %s!', $name);
 
-    function startGame()
-    {
-        line('Welcome to the Brain Game!');
-        $name = prompt('May I have your name?');
-        line('Hello, %s!', $name);
+    line('Answer "yes" if the number is even, otherwise answer "no".');
 
-        line('Answer "yes" if the number is even, otherwise answer "no".');
-        
-        $turns = 3; // Сколько всего вопросов
+    $turns = 3; // Сколько всего вопросов
 
-        for ($i = 0; $i < $turns; $i++) {
-                question($name);
-        }
-
-        line('Congratulations, %s!', $name);
+    for ($i = 0; $i < $turns; $i++) {
+            question($name);
     }
 
-    function question($name)
-    {
-        $randomNum = randomNum();
-        line('Question: %s', $randomNum);
+    line('Congratulations, %s!', $name);
+}
 
-        $answer = prompt('Your answer');
-        $isEven = $randomNum % 2 === 0;
-        $correctAnswer = 'is wrong answer ;(. Correct answer was ' . ($isEven ? 'yes' : 'no');
+function question(string $name): void
+{
+    $randomNum = randomNum();
+    line('Question: %s', $randomNum);
 
-        // Проверка ответа
-        if($answer === 'yes' && !$isEven) {
-            defeat($correctAnswer, $answer, $name);
-        }
+    $answer = prompt('Your answer');
+    $isEven = $randomNum % 2 === 0;
+    $correctAnswer = 'is wrong answer ;(. Correct answer was ' . ($isEven ? 'yes' : 'no');
 
-        if($answer === 'no' && $isEven) {
-            defeat($correctAnswer, $answer, $name);
-        }
-
-        if($answer !== 'no' && $answer !== 'yes') {
-            defeat($correctAnswer, $answer, $name);
-        }
-
-        line("Correct!");
+    // Проверка ответа
+    if ($answer === 'yes' && !$isEven) {
+        defeat($correctAnswer, $answer, $name);
     }
 
-    function defeat(string $correctAnswer, string $answer, string $name)
-    {
-        line("'%s' {$correctAnswer}", $answer);
-        line("Let's try again, %s!", $name);
-
-        die();
+    if ($answer === 'no' && $isEven) {
+        defeat($correctAnswer, $answer, $name);
     }
 
-    function randomNum()
-    {
-        return mt_rand(1, 100);
+    if ($answer !== 'no' && $answer !== 'yes') {
+        defeat($correctAnswer, $answer, $name);
     }
+
+    line("Correct!");
+}
+
+function defeat(string $correctAnswer, string $answer, string $name): never
+{
+    line("'%s' {$correctAnswer}", $answer);
+    line("Let's try again, %s!", $name);
+
+    die();
+}
+
+function randomNum(): int
+{
+    return mt_rand(1, 100);
+}

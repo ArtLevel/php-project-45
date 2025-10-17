@@ -3,13 +3,11 @@
     "description": "Brain Games",
     "license": "MIT",
     "bin": [
-        "bin/brain-games",
-        "bin/brain-even"
+        "bin/brain-games"
     ],
     "autoload": {
         "files": [
-            "src/Cli.php",
-            "src/brain-even.php"
+            "src/Cli.php"
         ]
     },
     "authors": [
