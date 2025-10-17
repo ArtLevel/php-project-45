@@ -1,11 +1,9 @@
 {
     "name": "hexlet/code",
     "description": "Brain Games",
-    "autoload": {
-        "psr-4": {
-            "Hexlet\\Code\\": "src/"
-        }
-    },
+    "bin": [
+        "bin/brain-games"
+    ],
     "authors": [
         {
             "name": "ArtLevel",
