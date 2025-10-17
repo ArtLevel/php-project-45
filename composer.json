@@ -6,7 +6,9 @@
         "bin/brain-games"
     ],
     "autoload": {
-        "files": []
+        "files": [
+            "src/Cli.php"
+        ]
     },
     "authors": [
         {
