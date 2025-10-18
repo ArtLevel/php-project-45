@@ -5,6 +5,8 @@ namespace BrainGames\Helpers;
 use function BrainGames\BrainEven\isCorrectAnswerEven;
 use function BrainGames\BrainCalc\isCorrectAnswerCalc;
 use function BrainGames\BrainGCD\isCorrectAnswerGCD;
+use function BrainGames\BrainProgression\isCorrectAnswerProgression;
+
 use function cli\line;
 use function cli\prompt;
 
@@ -41,8 +43,32 @@ function question(string $name, string $module): void
         isCorrectAnswerGCD($randomNum1, $randomNum2, $answer, $name);
     }
 
-    if ($module === "ap") {
-        
+    if ($module === "progression") {
+        $progression = [];
+        $idQuestion = randomNum(10);
+        $stepProgression = randomNum(10);
+        $rightAnswer = 0;
+
+        for($i = 0; $i < 10; $i++) {
+            if(!empty($progression)) {
+                $progression[] = $progression[count($progression) - 1] + $stepProgression;
+            } else {
+                $progression[] = $stepProgression;
+            }
+        }
+
+        foreach($progression as $index => $num) {
+            if($index === $idQuestion) {
+                $rightAnswer = $progression[$index];
+
+                $progression[$index] = '..';
+            }
+        }
+
+        line('Question: %s', implode(" ", $progression));
+        $answer = prompt('Your answer');
+
+        isCorrectAnswerProgression($rightAnswer, $answer, $name);
     }
 
     line("Correct!");
