@@ -6,14 +6,11 @@ use function cli\line;
 use function cli\prompt;
 use function BrainGames\Helpers\question;
 use function BrainGames\Helpers\defeat;
+use function BrainGames\Helpers\greeting;
 
 function startGame(): void
 {
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line('Hello, %s!', $name);
-
-    line('What is the result of the expression?');
+    $name = greeting('What is the result of the expression?');
 
     $turns = 3; // Сколько всего вопросов
 

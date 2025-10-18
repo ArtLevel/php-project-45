@@ -115,3 +115,14 @@ function defeat(string $correctAnswer, string $answer, string $name): never
 
     die();
 }
+
+function greeting(string $textOfQuestion): string
+{
+    line('Welcome to the Brain Games!');
+    $name = prompt('May I have your name?');
+    line('Hello, %s!', $name);
+
+    line('%s', $textOfQuestion);
+
+    return $name;
+}
