@@ -6,6 +6,8 @@ use function BrainGames\BrainEven\isCorrectAnswerEven;
 use function BrainGames\BrainCalc\isCorrectAnswerCalc;
 use function BrainGames\BrainGCD\isCorrectAnswerGCD;
 use function BrainGames\BrainProgression\isCorrectAnswerProgression;
+use function BrainGames\BrainPrime\isCorrectAnswerPrime;
+
 use function cli\line;
 use function cli\prompt;
 
@@ -68,6 +70,14 @@ function question(string $name, string $module): void
         $answer = prompt('Your answer');
 
         isCorrectAnswerProgression($rightAnswer, $answer, $name);
+    }
+
+    if($module === "prime") {
+        $randomNum = randomNum(1, 100);
+        line('Question: %s', $randomNum);
+        $answer = prompt('Your answer');
+
+        isCorrectAnswerPrime($randomNum, $answer, $name);
     }
 
     line("Correct!");

@@ -13,34 +13,36 @@ function startGame(): void
     $name = prompt('May I have your name?');
     line('Hello, %s!', $name);
 
-    line('Find the greatest common divisor of given numbers.');
+    line('Answer "yes" if given number is prime. Otherwise answer "no".');
 
     $turns = 3; // Сколько всего вопросов
 
     for ($i = 0; $i < $turns; $i++) {
-            question($name, 'gcd');
+            question($name, 'prime');
     }
 
     line('Congratulations, %s!', $name);
 }
 
-function isCorrectAnswerGCD(string $randomNum1, string $randomNum2, string $answer, string $name)
+function isCorrectAnswerPrime(int $randomNum, string $answer,string $name)
 {
-    $a = $randomNum1;
-    $b = $randomNum2;
+    $rightAnswer = 'yes';
 
-    // Ищем НОД
-    for ($i = 0; $b !== 0; $i++) {
-        if ($b === 0) {
-            $gcd = $a;
-        } else {
-            $temp = $a;
-            $a = $b;
-            $b = $temp % $b;
+    if($randomNum < 2) {
+        $rightAnswer = 'no';
+    } elseif($randomNum === 2) {
+        $rightAnswer = 'yes';
+    } elseif($randomNum % 2 === 0) {
+        $rightAnswer = 'no';
+    }
+
+    for($i = 3; $i < sqrt($randomNum); $i++) {
+        if($randomNum % $i === 0) {
+            $rightAnswer = 'no';
         }
     }
 
-    if (intval($answer) !== intval($a)) {
-        defeat($a, $answer, $name);
+    if($rightAnswer !== $answer) {
+        defeat($rightAnswer, $answer, $name);
     }
 }
