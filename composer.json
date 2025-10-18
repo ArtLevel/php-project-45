@@ -7,7 +7,8 @@
         "bin/brain-even",
         "bin/brain-calc",
         "bin/brain-gcd",
-        "bin/brain-progression"
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
     "autoload": {
         "files": [
@@ -16,7 +17,8 @@
             "src/helpers.php",
             "src/brain-calc.php",
             "src/brain-gcd.php",
-            "src/brain-progression.php"
+            "src/brain-progression.php",
+            "src/brain-prime.php"
         ]
     },
     "authors": [
