@@ -13,8 +13,8 @@ function question(string $name, string $module): void
 {
 
     if ($module === "calc") {
-        $randomNum1 = randomNum(10);
-        $randomNum2 = randomNum(10);
+        $randomNum1 = randomNum(1, 10);
+        $randomNum2 = randomNum(1, 10);
 
         $operator = generateOperator();
 
@@ -25,7 +25,7 @@ function question(string $name, string $module): void
     }
 
     if ($module === "even") {
-        $randomNum = randomNum(100);
+        $randomNum = randomNum(1, 100);
         line('Question: %s', $randomNum);
         $answer = prompt('Your answer');
 
@@ -33,8 +33,8 @@ function question(string $name, string $module): void
     }
 
     if ($module === "gcd") {
-        $randomNum1 = randomNum(10);
-        $randomNum2 = randomNum(10);
+        $randomNum1 = randomNum(1, 10);
+        $randomNum2 = randomNum(1, 10);
 
         line('Question: %s %s', $randomNum1, $randomNum2);
         $answer = prompt('Your answer');
@@ -44,8 +44,8 @@ function question(string $name, string $module): void
 
     if ($module === "progression") {
         $progression = [];
-        $idQuestion = randomNum(10);
-        $stepProgression = randomNum(10);
+        $idQuestion = randomNum(0, 9);
+        $stepProgression = randomNum(1, 10);
         $rightAnswer = 0;
 
         for ($i = 0; $i < 10; $i++) {
@@ -83,7 +83,7 @@ function questionEven(string $name, string $answer, $randomNum)
 
 function generateOperator(): string
 {
-    $num = randomNum(100);
+    $num = randomNum(1, 100);
 
     if ($num < 30) {
         return "-";
@@ -94,9 +94,9 @@ function generateOperator(): string
     }
 }
 
-function randomNum(int $step = 100): int
+function randomNum(int $stepOne = 0, int $stepTwo = 100): int
 {
-    return random_int(1, $step);
+    return random_int($stepOne, $stepTwo);
 }
 
 function defeat(string $correctAnswer, string $answer, string $name): never
