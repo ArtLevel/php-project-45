@@ -4,6 +4,8 @@ namespace BrainGames\Helpers;
 
 use function BrainGames\BrainEven\isCorrectAnswerEven;
 use function BrainGames\BrainCalc\isCorrectAnswerCalc;
+use function BrainGames\BrainGCD\isCorrectAnswerGCD;
+
 use function cli\line;
 use function cli\prompt;
 
@@ -28,6 +30,16 @@ function question(string $name, string $module): void
         $answer = prompt('Your answer');
 
         questionEven($name, $answer, $randomNum);
+    }
+
+    if($module === "gcd") {
+        $randomNum1 = randomNum(10);
+        $randomNum2 = randomNum(10);
+
+        line('Question: %s %s', $randomNum1, $randomNum2);
+        $answer = prompt('Your answer');
+
+        isCorrectAnswerGCD($randomNum1, $randomNum2, $answer, $name);
     }
 
     line("Correct!");

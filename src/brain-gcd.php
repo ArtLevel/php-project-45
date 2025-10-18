@@ -13,29 +13,34 @@ function startGame(): void
     $name = prompt('May I have your name?');
     line('Hello, %s!', $name);
 
-    line('Answer "yes" if the number is even, otherwise answer "no".');
+    line('Find the greatest common divisor of given numbers.');
 
     $turns = 3; // Сколько всего вопросов
 
     for ($i = 0; $i < $turns; $i++) {
-            question($name, 'even');
+            question($name, 'gcd');
     }
 
     line('Congratulations, %s!', $name);
 }
 
-function isCorrectAnswerEven(string $answer, string $correctAnswer, string $isEven, string $name)
+function isCorrectAnswerGCD(string $randomNum1,string $randomNum2,string $answer,string $name)
 {
-    // Проверка ответа
-    if ($answer === 'yes' && !$isEven) {
-        defeat($correctAnswer, $answer, $name);
+    $a = $randomNum1;
+    $b = $randomNum2;
+
+    // Ищем НОД
+    for ($i = 0; $b !== 0; $i++) {
+        if($b === 0) {
+            $gcd = $a;
+        } else {
+            $temp = $a;
+            $a = $b;
+            $b = $temp % $b;
+        }
     }
 
-    if ($answer === 'no' && $isEven) {
-        defeat($correctAnswer, $answer, $name);
-    }
-
-    if ($answer !== 'no' && $answer !== 'yes') {
-        defeat($correctAnswer, $answer, $name);
+    if(intval($answer) !== intval($a)) {
+        defeat($a, $answer, $name);
     }
 }
