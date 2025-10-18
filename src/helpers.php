@@ -5,7 +5,6 @@ namespace BrainGames\Helpers;
 use function BrainGames\BrainEven\isCorrectAnswerEven;
 use function BrainGames\BrainCalc\isCorrectAnswerCalc;
 use function BrainGames\BrainGCD\isCorrectAnswerGCD;
-
 use function cli\line;
 use function cli\prompt;
 
@@ -32,7 +31,7 @@ function question(string $name, string $module): void
         questionEven($name, $answer, $randomNum);
     }
 
-    if($module === "gcd") {
+    if ($module === "gcd") {
         $randomNum1 = randomNum(10);
         $randomNum2 = randomNum(10);
 

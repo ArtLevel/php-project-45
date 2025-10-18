@@ -24,14 +24,14 @@ function startGame(): void
     line('Congratulations, %s!', $name);
 }
 
-function isCorrectAnswerGCD(string $randomNum1,string $randomNum2,string $answer,string $name)
+function isCorrectAnswerGCD(string $randomNum1, string $randomNum2, string $answer, string $name)
 {
     $a = $randomNum1;
     $b = $randomNum2;
 
     // Ищем НОД
     for ($i = 0; $b !== 0; $i++) {
-        if($b === 0) {
+        if ($b === 0) {
             $gcd = $a;
         } else {
             $temp = $a;
@@ -40,7 +40,7 @@ function isCorrectAnswerGCD(string $randomNum1,string $randomNum2,string $answer
         }
     }
 
-    if(intval($answer) !== intval($a)) {
+    if (intval($answer) !== intval($a)) {
         defeat($a, $answer, $name);
     }
 }
