@@ -9,3 +9,6 @@
 
 ### Brain Calc
 [![asciicast](https://asciinema.org/a/749804.svg)](https://asciinema.org/a/749804)
+
+### Brain GCD
+[![asciicast](https://asciinema.org/a/749805.svg)](https://asciinema.org/a/749805)
