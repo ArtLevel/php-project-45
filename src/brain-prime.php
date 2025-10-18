@@ -21,7 +21,7 @@ function startGame(): void
             question($name, 'prime');
     }
 
-    line('Congratulations, %s!', $name);
+    line('Congratulations, %s!', $name); // Баг ?
 }
 
 function isCorrectAnswerPrime(int $randomNum, string $answer, string $name): void
