@@ -26,7 +26,7 @@ function startGame(): void
 
 function isCorrectAnswerProgression(int $rightAnswer, string $answer, string $name)
 {
-    if(intval($rightAnswer) !== intval($answer)) {
+    if (intval($rightAnswer) !== intval($answer)) {
         defeat($rightAnswer, $answer, $name);
     }
 }
