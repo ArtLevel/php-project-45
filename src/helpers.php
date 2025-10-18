@@ -53,7 +53,7 @@ function question(string $name, string $module): void
         $randomNum = randomNum(1, 100);
 
         line('Question: %s', $randomNum); // Странный код, пахнет $answer = generateQuestion($randomNum);
-        $answer = prompt('Your answer'); // Странный код, пахнет
+        $answer = prompt('Your answer'); // Странный код, пахнет, тест
 
         isCorrectAnswerPrime($randomNum, $answer, $name);
     }
