@@ -52,7 +52,8 @@ function question(string $name, string $module): void
     if ($module === "prime") {
         $randomNum = randomNum(1, 100);
 
-        $answer = generateQuestion($randomNum);
+        line('Question: %s', $randomNum);
+        $answer = prompt('Your answer');
 
         isCorrectAnswerPrime($randomNum, $answer, $name);
     }
