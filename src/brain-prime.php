@@ -24,7 +24,7 @@ function startGame(): void
     line('Congratulations, %s!', $name);
 }
 
-function isCorrectAnswerPrime(int $randomNum, string $answer, string $name)
+function isCorrectAnswerPrime(int $randomNum, string $answer, string $name): void
 {
     $rightAnswer = 'yes';
 

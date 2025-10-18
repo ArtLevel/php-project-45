@@ -24,7 +24,7 @@ function startGame(): void
     line('Congratulations, %s!', $name);
 }
 
-function isCorrectAnswerCalc(int $randomNum1, string $operator, int $randomNum2, string $answer, string $name)
+function isCorrectAnswerCalc(int $randomNum1, string $operator, int $randomNum2, string $answer, string $name): void
 {
     $result = 0;
 

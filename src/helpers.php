@@ -82,7 +82,7 @@ function question(string $name, string $module): void
     line("Correct!");
 }
 
-function questionEven(string $name, string $answer, $randomNum)
+function questionEven(string $name, string $answer, $randomNum): void
 {
     $isEven = $randomNum % 2 === 0;
     $correctAnswer = $isEven ? 'yes' : 'no';
