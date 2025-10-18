@@ -24,25 +24,25 @@ function startGame(): void
     line('Congratulations, %s!', $name);
 }
 
-function isCorrectAnswerPrime(int $randomNum, string $answer,string $name)
+function isCorrectAnswerPrime(int $randomNum, string $answer, string $name)
 {
     $rightAnswer = 'yes';
 
-    if($randomNum < 2) {
+    if ($randomNum < 2) {
         $rightAnswer = 'no';
-    } elseif($randomNum === 2) {
+    } elseif ($randomNum === 2) {
         $rightAnswer = 'yes';
-    } elseif($randomNum % 2 === 0) {
+    } elseif ($randomNum % 2 === 0) {
         $rightAnswer = 'no';
     }
 
-    for($i = 3; $i < sqrt($randomNum); $i++) {
-        if($randomNum % $i === 0) {
+    for ($i = 3; $i < sqrt($randomNum); $i++) {
+        if ($randomNum % $i === 0) {
             $rightAnswer = 'no';
         }
     }
 
-    if($rightAnswer !== $answer) {
+    if ($rightAnswer !== $answer) {
         defeat($rightAnswer, $answer, $name);
     }
 }
