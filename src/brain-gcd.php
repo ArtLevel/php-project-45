@@ -31,13 +31,9 @@ function isCorrectAnswerGCD(int $randomNum1, int $randomNum2, string $answer, st
 
     // Ищем НОД
     for ($i = 0; $b !== 0; $i++) {
-        if ($b === 0) {
-            $gcd = $a;
-        } else {
             $temp = $a;
             $a = $b;
             $b = $temp % $b;
-        }
     }
 
     if (intval($answer) !== intval($a)) {
