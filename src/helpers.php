@@ -27,10 +27,11 @@ function question(string $name, string $module): void
 
     if ($module === "even") {
         $randomNum = randomNum(1, 100);
-        line('Question: %s', $randomNum);
+
+        line('Question: %s', [$randomNum, $randomNum, $randomNum]);
         $answer = prompt('Your answer');
 
-        questionEven($name, $answer, $randomNum);
+        isCorrectAnswerEven($randomNum, $answer, $name);
     }
 
     if ($module === "gcd") {
@@ -44,26 +45,7 @@ function question(string $name, string $module): void
     }
 
     if ($module === "progression") {
-        $progression = [];
-        $idQuestion = randomNum(0, 9);
-        $stepProgression = randomNum(1, 10);
-        $rightAnswer = 0;
-
-        for ($i = 0; $i < 10; $i++) {
-            if (count($progression) !== 0) {
-                $progression[] = $progression[count($progression) - 1] + $stepProgression;
-            } else {
-                $progression[] = $stepProgression;
-            }
-        }
-
-        foreach ($progression as $index => $num) {
-            if ($index === $idQuestion) {
-                $rightAnswer = $progression[$index];
-
-                $progression[$index] = '..';
-            }
-        }
+        [$progression, $rightAnswer] = generateProgression();
 
         line('Question: %s', implode(" ", $progression));
         $answer = prompt('Your answer');
@@ -82,12 +64,30 @@ function question(string $name, string $module): void
     line("Correct!");
 }
 
-function questionEven(string $name, string $answer, int $randomNum): void
+function generateProgression(): array
 {
-    $isEven = $randomNum % 2 === 0;
-    $correctAnswer = $isEven ? 'yes' : 'no';
+        $progression = [];
+        $idQuestion = randomNum(0, 9);
+        $stepProgression = randomNum(1, 10);
+        $rightAnswer = 0;
 
-    isCorrectAnswerEven($answer, $correctAnswer, $isEven, $name);
+    for ($i = 0; $i < 10; $i++) {
+        if (count($progression) !== 0) {
+            $progression[] = $progression[count($progression) - 1] + $stepProgression;
+        } else {
+            $progression[] = $stepProgression;
+        }
+    }
+
+    foreach ($progression as $index => $num) {
+        if ($index === $idQuestion) {
+            $rightAnswer = $progression[$index];
+
+            $progression[$index] = '..';
+        }
+    }
+
+        return [$progression, $rightAnswer];
 }
 
 function generateOperator(): string

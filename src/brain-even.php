@@ -21,8 +21,11 @@ function startGame(): void
     line('Congratulations, %s!', $name);
 }
 
-function isCorrectAnswerEven(string $answer, string $correctAnswer, bool $isEven, string $name): void
+function isCorrectAnswerEven(int $randomNum, string $answer, string $name): void
 {
+    $isEven = $randomNum % 2 === 0;
+    $correctAnswer = $isEven ? 'yes' : 'no';
+
     // Проверка ответа
     if ($answer === 'yes' && !$isEven) {
         defeat($correctAnswer, $answer, $name);
