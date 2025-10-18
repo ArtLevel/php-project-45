@@ -19,8 +19,7 @@ function question(string $name, string $module): void
 
         $operator = generateOperator();
 
-        line('Question: %s %s %s', $randomNum1, $operator, $randomNum2);
-        $answer = prompt('Your answer');
+        $answer = generateQuestion($randomNum1, $operator, $randomNum2);
 
         isCorrectAnswerCalc($randomNum1, $operator, $randomNum2, $answer, $name);
     }
@@ -28,8 +27,7 @@ function question(string $name, string $module): void
     if ($module === "even") {
         $randomNum = randomNum(1, 100);
 
-        line('Question: %s', [$randomNum, $randomNum, $randomNum]);
-        $answer = prompt('Your answer');
+        $answer = generateQuestion($randomNum);
 
         isCorrectAnswerEven($randomNum, $answer, $name);
     }
@@ -38,8 +36,7 @@ function question(string $name, string $module): void
         $randomNum1 = randomNum(1, 10);
         $randomNum2 = randomNum(1, 10);
 
-        line('Question: %s %s', $randomNum1, $randomNum2);
-        $answer = prompt('Your answer');
+        $answer = generateQuestion($randomNum1, $randomNum2);
 
         isCorrectAnswerGCD($randomNum1, $randomNum2, $answer, $name);
     }
@@ -47,21 +44,30 @@ function question(string $name, string $module): void
     if ($module === "progression") {
         [$progression, $rightAnswer] = generateProgression();
 
-        line('Question: %s', implode(" ", $progression));
-        $answer = prompt('Your answer');
+        $answer = generateQuestion(implode(" ", $progression));
 
         isCorrectAnswerProgression($rightAnswer, $answer, $name);
     }
 
     if ($module === "prime") {
         $randomNum = randomNum(1, 100);
-        line('Question: %s', $randomNum);
-        $answer = prompt('Your answer');
+
+        $answer = generateQuestion($randomNum);
 
         isCorrectAnswerPrime($randomNum, $answer, $name);
     }
 
     line("Correct!");
+}
+
+function generateQuestion(...$arr)
+{
+    $string = implode(' ', $arr);
+
+    line('Question: %s', $string);
+    $answer = prompt('Your answer');
+
+    return $answer;
 }
 
 function generateProgression(): array
