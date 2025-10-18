@@ -50,7 +50,7 @@ function question(string $name, string $module): void
         $rightAnswer = 0;
 
         for ($i = 0; $i < 10; $i++) {
-            if (!empty($progression)) {
+            if (count($progression) !== 0) {
                 $progression[] = $progression[count($progression) - 1] + $stepProgression;
             } else {
                 $progression[] = $stepProgression;
@@ -82,7 +82,7 @@ function question(string $name, string $module): void
     line("Correct!");
 }
 
-function questionEven(string $name, string $answer, $randomNum): void
+function questionEven(string $name, string $answer, int $randomNum): void
 {
     $isEven = $randomNum % 2 === 0;
     $correctAnswer = $isEven ? 'yes' : 'no';

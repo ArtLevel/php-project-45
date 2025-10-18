@@ -41,6 +41,6 @@ function isCorrectAnswerCalc(int $randomNum1, string $operator, int $randomNum2,
     }
 
     if ($result !== intval($answer)) {
-        defeat($result, $answer, $name);
+        defeat(strval($result), $answer, $name);
     }
 }
