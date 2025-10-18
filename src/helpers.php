@@ -61,7 +61,7 @@ function question(string $name, string $module): void
     line("Correct!");
 }
 
-function generateQuestion(array ...$arr): string
+function generateQuestion(mixed ...$arr): string
 {
     $string = implode(' ', $arr);
 
