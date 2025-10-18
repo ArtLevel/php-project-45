@@ -6,3 +6,6 @@
 
 ### Brain Even
 [![asciicast](https://asciinema.org/a/749626.svg)](https://asciinema.org/a/749626)
+
+### Brain Calc
+[![asciicast](https://asciinema.org/a/749804.svg)](https://asciinema.org/a/749804)
