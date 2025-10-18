@@ -52,8 +52,8 @@ function question(string $name, string $module): void
     if ($module === "prime") {
         $randomNum = randomNum(1, 100);
 
-        line('Question: %s', $randomNum);
-        $answer = prompt('Your answer');
+        line('Question: %s', $randomNum); // Странный код, пахнет $answer = generateQuestion($randomNum);
+        $answer = prompt('Your answer'); // Странный код, пахнет
 
         isCorrectAnswerPrime($randomNum, $answer, $name);
     }
@@ -61,7 +61,7 @@ function question(string $name, string $module): void
     line("Correct!");
 }
 
-function generateQuestion(...$arr): string
+function generateQuestion(array ...$arr): string
 {
     $string = implode(' ', $arr);
 
