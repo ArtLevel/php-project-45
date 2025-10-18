@@ -34,8 +34,8 @@ function question(string $name, string $module): void
     }
 
     if ($module === "gcd") {
-        $randomNum1 = randomNum(1, 10);
-        $randomNum2 = randomNum(1, 10);
+        $randomNum1 = randomNum(0, 10);
+        $randomNum2 = randomNum(0, 10);
 
         line('Question: %s %s', $randomNum1, $randomNum2);
         $answer = prompt('Your answer');

@@ -41,6 +41,6 @@ function isCorrectAnswerGCD(int $randomNum1, int $randomNum2, string $answer, st
     }
 
     if (intval($answer) !== intval($a)) {
-        defeat($a, $answer, $name);
+        defeat(strval($a), $answer, $name);
     }
 }
