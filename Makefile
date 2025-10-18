@@ -22,4 +22,5 @@ brain-calc:
 brain-gcd:
 	./bin/brain-gcd
 
-	
+brain-ap:
+	./bin/brain-ap

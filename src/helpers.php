@@ -41,6 +41,10 @@ function question(string $name, string $module): void
         isCorrectAnswerGCD($randomNum1, $randomNum2, $answer, $name);
     }
 
+    if ($module === "ap") {
+        
+    }
+
     line("Correct!");
 }
 
