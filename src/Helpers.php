@@ -2,11 +2,11 @@
 
 namespace BrainGames\Helpers;
 
-use function BrainGames\BrainEven\isCorrectAnswerEven;
-use function BrainGames\BrainCalc\isCorrectAnswerCalc;
-use function BrainGames\BrainGCD\isCorrectAnswerGCD;
-use function BrainGames\BrainProgression\isCorrectAnswerProgression;
-use function BrainGames\BrainPrime\isCorrectAnswerPrime;
+use function BrainGames\Games\BrainEven\isCorrectAnswerEven;
+use function BrainGames\Games\BrainCalc\isCorrectAnswerCalc;
+use function BrainGames\Games\BrainGCD\isCorrectAnswerGCD;
+use function BrainGames\Games\BrainProgression\isCorrectAnswerProgression;
+use function BrainGames\Games\BrainPrime\isCorrectAnswerPrime;
 use function cli\line;
 use function cli\prompt;
 

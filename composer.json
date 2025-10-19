@@ -13,12 +13,12 @@
     "autoload": {
         "files": [
             "src/Cli.php",
-            "src/brain-even.php",
-            "src/helpers.php",
-            "src/brain-calc.php",
-            "src/brain-gcd.php",
-            "src/brain-progression.php",
-            "src/brain-prime.php"
+            "src/Helpers.php",
+            "src/Games/BrainEven.php",
+            "src/Games/BrainCalc.php",
+            "src/Games/BrainGcd.php",
+            "src/Games/BrainProgression.php",
+            "src/Games/BrainPrime.php"
         ]
     },
     "authors": [
