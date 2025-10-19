@@ -38,13 +38,13 @@ function isCorrectAnswerPrime(int $randomNum, string $answer, string $name): voi
     if ($randomNum <= 3) {
         $rightAnswer = 'yes'; // 2 и 3 простые числа
     }
-    if ($randomNum % 2 == 0 || $randomNum % 3 == 0) {
+    if ($randomNum % 2 === 0 || $randomNum % 3 === 0) {
         $rightAnswer = 'no'; // делится на 2 или 3 — не простое
     }
 
     // Проверяем делители от 5 до sqrt(num), шаг 6 (проверка чисел вида 6k±1)
     for ($i = 5; $i * $i <= $randomNum; $i += 6) {
-        if ($randomNum % $i == 0 || $randomNum % ($i + 2) == 0) {
+        if ($randomNum % $i === 0 || $randomNum % ($i + 2) === 0) {
             $rightAnswer = 'no';
         }
     }
