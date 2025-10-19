@@ -32,16 +32,19 @@ function isCorrectAnswerPrime(int $randomNum, string $answer, string $name): voi
 {
     $rightAnswer = 'yes';
 
-    if ($randomNum < 2) {
-        $rightAnswer = 'no';
-    } elseif ($randomNum === 2) {
-        $rightAnswer = 'yes';
-    } elseif ($randomNum % 2 === 0) {
-        $rightAnswer = 'no';
+    if ($randomNum <= 1) {
+        $rightAnswer = 'no'; // числа меньше или равные 1 не простые
+    }
+    if ($randomNum <= 3) {
+        $rightAnswer = 'yes'; // 2 и 3 простые числа
+    }
+    if ($randomNum % 2 == 0 || $randomNum % 3 == 0) {
+        $rightAnswer = 'no'; // делится на 2 или 3 — не простое
     }
 
-    for ($i = 3; $i < sqrt($randomNum); $i++) {
-        if ($randomNum % $i === 0) {
+    // Проверяем делители от 5 до sqrt(num), шаг 6 (проверка чисел вида 6k±1)
+    for ($i = 5; $i * $i <= $randomNum; $i += 6) {
+        if ($randomNum % $i == 0 || $randomNum % ($i + 2) == 0) {
             $rightAnswer = 'no';
         }
     }
