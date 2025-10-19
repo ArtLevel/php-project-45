@@ -4,9 +4,9 @@ namespace BrainGames\Games\BrainPrime;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Helpers\question;
 use function BrainGames\Helpers\defeat;
 use function BrainGames\Helpers\greeting;
+use function BrainGames\Helpers\randomNum;
 
 function startGame(): void
 {
@@ -15,10 +15,17 @@ function startGame(): void
     $turns = 3; // Сколько всего вопросов
 
     for ($i = 0; $i < $turns; $i++) {
-            question($name, 'prime');
+        $randomNum = randomNum(1, 100);
+
+        line('Question: %s', $randomNum);
+        $answer = prompt('Your answer');
+
+        isCorrectAnswerPrime($randomNum, $answer, $name);
+
+         line("Correct!");
     }
 
-    line('Congratulations, %s!', $name); // Баг ?
+    line('Congratulations, %s!', $name);
 }
 
 function isCorrectAnswerPrime(int $randomNum, string $answer, string $name): void

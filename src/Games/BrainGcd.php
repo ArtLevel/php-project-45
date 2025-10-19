@@ -4,9 +4,10 @@ namespace BrainGames\Games\BrainGCD;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Helpers\question;
 use function BrainGames\Helpers\defeat;
 use function BrainGames\Helpers\greeting;
+use function BrainGames\Helpers\randomNum;
+use function BrainGames\Helpers\generateQuestion;
 
 function startGame(): void
 {
@@ -15,7 +16,13 @@ function startGame(): void
     $turns = 3; // Сколько всего вопросов
 
     for ($i = 0; $i < $turns; $i++) {
-            question($name, 'gcd');
+        $randomNum1 = randomNum(1, 10);
+        $randomNum2 = randomNum(1, 10);
+
+        $answer = generateQuestion($randomNum1, $randomNum2);
+
+        isCorrectAnswerGCD($randomNum1, $randomNum2, $answer, $name);
+        line("Correct!");
     }
 
     line('Congratulations, %s!', $name);

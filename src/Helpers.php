@@ -10,57 +10,6 @@ use function BrainGames\Games\BrainPrime\isCorrectAnswerPrime;
 use function cli\line;
 use function cli\prompt;
 
-function question(string $name, string $module): void
-{
-
-    if ($module === "calc") {
-        $randomNum1 = randomNum(1, 10);
-        $randomNum2 = randomNum(1, 10);
-
-        $operator = generateOperator();
-
-        $answer = generateQuestion($randomNum1, $operator, $randomNum2);
-
-        isCorrectAnswerCalc($randomNum1, $operator, $randomNum2, $answer, $name);
-    }
-
-    if ($module === "even") {
-        $randomNum = randomNum(1, 100);
-
-        $answer = generateQuestion($randomNum);
-
-        isCorrectAnswerEven($randomNum, $answer, $name);
-    }
-
-    if ($module === "gcd") {
-        $randomNum1 = randomNum(1, 10);
-        $randomNum2 = randomNum(1, 10);
-
-        $answer = generateQuestion($randomNum1, $randomNum2);
-
-        isCorrectAnswerGCD($randomNum1, $randomNum2, $answer, $name);
-    }
-
-    if ($module === "progression") {
-        [$progression, $rightAnswer] = generateProgression();
-
-        $answer = generateQuestion(implode(" ", $progression));
-
-        isCorrectAnswerProgression($rightAnswer, $answer, $name);
-    }
-
-    if ($module === "prime") {
-        $randomNum = randomNum(1, 100);
-
-        line('Question: %s', $randomNum); // Странный код, пахнет $answer = generateQuestion($randomNum);
-        $answer = prompt('Your answer'); // Странный код, пахнет, тест
-
-        isCorrectAnswerPrime($randomNum, $answer, $name);
-    }
-
-    line("Correct!");
-}
-
 function generateQuestion(mixed ...$arr): string
 {
     $string = implode(' ', $arr);

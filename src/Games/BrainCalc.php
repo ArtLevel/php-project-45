@@ -4,9 +4,11 @@ namespace BrainGames\Games\BrainCalc;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Helpers\question;
 use function BrainGames\Helpers\defeat;
 use function BrainGames\Helpers\greeting;
+use function BrainGames\Helpers\generateOperator;
+use function BrainGames\Helpers\randomNum;
+use function BrainGames\Helpers\generateQuestion;
 
 function startGame(): void
 {
@@ -15,7 +17,16 @@ function startGame(): void
     $turns = 3; // Сколько всего вопросов
 
     for ($i = 0; $i < $turns; $i++) {
-            question($name, 'calc');
+        $randomNum1 = randomNum(1, 10);
+        $randomNum2 = randomNum(1, 10);
+
+        $operator = generateOperator();
+
+        $answer = generateQuestion($randomNum1, $operator, $randomNum2);
+
+        isCorrectAnswerCalc($randomNum1, $operator, $randomNum2, $answer, $name);
+
+        line("Correct!");
     }
 
     line('Congratulations, %s!', $name);

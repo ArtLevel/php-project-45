@@ -4,9 +4,10 @@ namespace BrainGames\Games\BrainEven;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Helpers\question;
 use function BrainGames\Helpers\defeat;
 use function BrainGames\Helpers\greeting;
+use function BrainGames\Helpers\randomNum;
+use function BrainGames\Helpers\generateQuestion;
 
 function startGame(): void
 {
@@ -15,7 +16,13 @@ function startGame(): void
     $turns = 3; // Сколько всего вопросов
 
     for ($i = 0; $i < $turns; $i++) {
-            question($name, 'even');
+        $randomNum = randomNum(1, 100);
+
+        $answer = generateQuestion($randomNum);
+
+        isCorrectAnswerEven($randomNum, $answer, $name);
+
+        line("Correct!");
     }
 
     line('Congratulations, %s!', $name);
