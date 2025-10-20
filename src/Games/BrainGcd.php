@@ -11,7 +11,7 @@ use function BrainGames\Helpers\generateQuestion;
 
 function startGame(): void
 {
-    $name = greeting('Find the greatest common divisor of given numbers.');
+    $name = greeting(textOfQuestion: 'Find the greatest common divisor of given numbers.');
 
     $turns = 3; // Сколько всего вопросов
 
