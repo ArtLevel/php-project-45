@@ -10,7 +10,7 @@ use function BrainGames\Helpers\randomNum;
 
 function startGame(): void
 {
-    $name = greeting(textOfQuestion: 'Answer "yes" if given number is prime. Otherwise answer "no".');
+    $name = greeting(textOfQuestion: 'Answer "yes" if given number is prime. Otherwise answer "no".'); // именованные параметры функции
 
     $turns = 3; // Сколько всего вопросов
 
