@@ -11,7 +11,7 @@ use function BrainGames\Helpers\generateQuestion;
 
 function startGame(): void
 {
-    $name = greeting(textOfQuestion: 'Answer "yes" if the number is even, otherwise answer "no".');
+    $name = greeting('Answer "yes" if the number is even, otherwise answer "no".');
 
     $turns = 3; // Сколько всего вопросов
 

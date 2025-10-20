@@ -12,7 +12,7 @@ use function BrainGames\Helpers\generateQuestion;
 
 function startGame(): void
 {
-    $name = greeting(textOfQuestion: 'What is the result of the expression?');
+    $name = greeting('What is the result of the expression?');
 
     $turns = 3; // Сколько всего вопросов
 

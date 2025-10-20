@@ -11,7 +11,7 @@ use function BrainGames\Helpers\generateQuestion;
 
 function startGame(): void
 {
-    $name = greeting(textOfQuestion: 'What number is missing in the progression?');
+    $name = greeting('What number is missing in the progression?');
 
     $turns = 3; // Сколько всего вопросов
 
