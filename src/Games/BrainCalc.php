@@ -6,7 +6,6 @@ use function cli\line;
 use function cli\prompt;
 use function BrainGames\Helpers\defeat;
 use function BrainGames\Helpers\greeting;
-use function BrainGames\Helpers\generateOperator;
 use function BrainGames\Helpers\randomNum;
 use function BrainGames\Helpers\generateQuestion;
 
@@ -50,5 +49,18 @@ function isCorrectAnswerCalc(int $randomNum1, string $operator, int $randomNum2,
 
     if ($result !== intval($answer)) {
         defeat(strval($result), $answer, $name);
+    }
+}
+
+function generateOperator(): string
+{
+    $num = randomNum(1, 100);
+
+    if ($num < 30) {
+        return "-";
+    } elseif ($num < 60) {
+        return "+";
+    } else {
+        return "*";
     }
 }

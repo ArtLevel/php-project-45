@@ -20,19 +20,6 @@ function generateQuestion(mixed ...$arr): string
     return $answer;
 }
 
-function generateOperator(): string
-{
-    $num = randomNum(1, 100);
-
-    if ($num < 30) {
-        return "-";
-    } elseif ($num < 60) {
-        return "+";
-    } else {
-        return "*";
-    }
-}
-
 function randomNum(int $stepOne = 0, int $stepTwo = 100): int
 {
     return random_int($stepOne, $stepTwo);
