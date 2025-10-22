@@ -35,17 +35,11 @@ function isCorrectAnswerCalc(int $randomNum1, string $operator, int $randomNum2,
 {
     $result = 0;
 
-    switch ($operator) {
-        case "+":
-            $result = $randomNum1 + $randomNum2;
-            break;
-        case "-":
-            $result = $randomNum1 - $randomNum2;
-            break;
-        case "*":
-            $result = $randomNum1 * $randomNum2;
-            break;
-    }
+    $result = match($operator) {
+        "+" => $randomNum1 + $randomNum2,
+        "-" => $randomNum1 - $randomNum2,
+        "*" => $randomNum1 * $randomNum2
+    };
 
     if ($result !== intval($answer)) {
         defeat(strval($result), $answer, $name);
