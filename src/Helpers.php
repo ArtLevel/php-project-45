@@ -20,32 +20,6 @@ function generateQuestion(mixed ...$arr): string
     return $answer;
 }
 
-function generateProgression(): array
-{
-        $progression = [];
-        $idQuestion = randomNum(0, 9);
-        $stepProgression = randomNum(1, 10);
-        $rightAnswer = 0;
-
-    for ($i = 0; $i < 10; $i++) {
-        if (count($progression) !== 0) {
-            $progression[] = $progression[count($progression) - 1] + $stepProgression;
-        } else {
-            $progression[] = $stepProgression;
-        }
-    }
-
-    foreach ($progression as $index => $num) {
-        if ($index === $idQuestion) {
-            $rightAnswer = $progression[$index];
-
-            $progression[$index] = '..';
-        }
-    }
-
-        return [$progression, $rightAnswer];
-}
-
 function generateOperator(): string
 {
     $num = randomNum(1, 100);
