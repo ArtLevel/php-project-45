@@ -35,7 +35,7 @@ function isCorrectAnswerCalc(int $randomNum1, string $operator, int $randomNum2,
 {
     $result = 0;
 
-    $result = match($operator) {
+    $result = match ($operator) {
         "+" => $randomNum1 + $randomNum2,
         "-" => $randomNum1 - $randomNum2,
         "*" => $randomNum1 * $randomNum2
