@@ -14,7 +14,7 @@ Composer
 Make
 Git
 Install
-git clone https://github.com/NikolaiProgramist/php-project-45.git
+git clone https://github.com/ArtLevel/php-project-45.git
 cd php-project-45
 make install
 Play
